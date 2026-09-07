@@ -1,0 +1,6 @@
+{
+  "name": "Galaxia",
+  "description": "Landing page for Galaxia headphones featuring acoustic architecture, computational audio, active noise cancellation, and high-fidelity sound.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 260" fill="none">
+  <defs>
+    <path id="galaxia-unit" d="M -12,-20.2 C -6,-15.5 -4,-11 0,-11 C 4,-11 6,-15.5 12,-20.2 A 23.5 23.5 0 1 1 12,20.2 C 6,15.5 4,11 0,11 C -4,11 -6,15.5 -12,20.2 A 23.5 23.5 0 1 1 -12,-20.2 Z" fill="currentColor" />
+  </defs>
+  <g transform="translate(130, 130)">
+    <use href="#galaxia-unit" transform="rotate(0) translate(0, 80)" />
+    <use href="#galaxia-unit" transform="rotate(72) translate(0, 80)" />
+    <use href="#galaxia-unit" transform="rotate(144) translate(0, 80)" />
+    <use href="#galaxia-unit" transform="rotate(216) translate(0, 80)" />
+    <use href="#galaxia-unit" transform="rotate(288) translate(0, 80)" />
+  </g>
+</svg>

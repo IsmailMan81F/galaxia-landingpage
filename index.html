@@ -1,0 +1,1505 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Galaxia — Sound without gravity</title>
+    <meta name="description" content="Discover Galaxia. Premium over-ear headphones with superior acoustic fidelity, Active Noise Cancellation, Personalized Spatial Audio, and up to 40 hours of battery life." />
+    <meta property="og:title" content="Galaxia — Sound without gravity" />
+    <meta property="og:description" content="Discover Galaxia. Over-ear headphones with superior acoustic fidelity, Active Noise Cancellation, and precision acoustic engineering." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Typography: Inter font pairing mimicking SF Pro Display & Text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..700;1,14..32,300..700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS Script -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'primary-ink': '#1d1d1f',
+              'mid-gray': '#707070',
+              'deep-gray': '#474747',
+              'hairline': '#d6d6d6',
+              'canvas': '#f5f5f7',
+              'paper': '#ffffff',
+              'cool-wash': '#e8e8ed',
+              'faded-surface': '#fafafc',
+              'quiet-dot': '#777779',
+              'electric-blue': '#0071e3',
+              'link-blue': '#0066cc',
+              'ember': '#b64400',
+              'finish-sky': '#c8d8e0',
+              'finish-citrus': '#dddc8c',
+              'finish-starlight': '#f0e4d3',
+              'finish-silver': '#e3e4e5',
+              'finish-blush': '#e8d0d0',
+              'finish-midnight': '#2e3642',
+            },
+            fontFamily: {
+              sf: ['-apple-system', 'BlinkMacSystemFont', 'Inter', 'SF Pro Text', 'sans-serif'],
+            },
+            borderRadius: {
+              'card': '28px',
+              'badge': '36px',
+              'pill': '980px',
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      /* Apple (España) Design System Tokens & Foundations */
+      :root {
+        --color-primary-ink: #1d1d1f;
+        --color-mid-gray: #707070;
+        --color-deep-gray: #474747;
+        --color-hairline: #d6d6d6;
+        --color-canvas: #f5f5f7;
+        --color-paper: #ffffff;
+        --color-cool-wash: #e8e8ed;
+        --color-electric-blue: #0071e3;
+        --color-link-blue: #0066cc;
+        --color-ember: #b64400;
+
+        font-family: -apple-system, BlinkMacSystemFont, "Inter", "SF Pro Text", system-ui, sans-serif;
+        color: #1d1d1f;
+        background-color: #ffffff;
+        font-feature-settings: normal;
+        font-variant-numeric: normal;
+      }
+
+      /* Hero Display Typography */
+      .apple-headline {
+        font-size: clamp(48px, 8vw, 96px);
+        line-height: 1.04;
+        letter-spacing: -1.44px;
+        font-weight: 700;
+      }
+
+      .apple-heading-lg {
+        font-size: clamp(36px, 6vw, 64px);
+        line-height: 1.08;
+        letter-spacing: -1.1px;
+        font-weight: 700;
+      }
+
+      .apple-section-title {
+        font-size: clamp(28px, 4vw, 40px);
+        line-height: 1.15;
+        letter-spacing: 0.007em;
+        font-weight: 600;
+      }
+
+      .apple-subhead {
+        font-size: clamp(19px, 2.5vw, 24px);
+        line-height: 1.35;
+        color: #707070;
+        font-weight: 400;
+      }
+
+      .apple-body {
+        font-size: 17px;
+        line-height: 1.47;
+        letter-spacing: -0.022em;
+        color: #707070;
+      }
+
+      /* Buttons & Actions */
+      .apple-pill-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 980px;
+        font-size: 17px;
+        line-height: 1.176;
+        font-weight: 400;
+        padding: 11px 22px;
+        transition: all 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+        text-decoration: none;
+        white-space: nowrap;
+      }
+
+      .apple-pill-btn-primary {
+        background-color: #0071e3;
+        color: #ffffff;
+      }
+
+      .apple-pill-btn-primary:hover {
+        background-color: #0077ed;
+      }
+
+      .apple-pill-btn-primary:active {
+        background-color: #0062c4;
+      }
+
+      .apple-pill-btn-secondary {
+        background-color: #e8e8ed;
+        color: #1d1d1f;
+      }
+
+      .apple-pill-btn-secondary:hover {
+        background-color: #dedee3;
+      }
+
+      .apple-link-arrow {
+        color: #0066cc;
+        font-size: 17px;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        transition: color 0.2s ease;
+      }
+
+      .apple-link-arrow:hover {
+        text-decoration: underline;
+      }
+
+      /* Card radius without drop shadows */
+      .apple-card {
+        border-radius: 28px;
+        background-color: #ffffff;
+        box-shadow: none;
+        border: none;
+      }
+
+      /* Swatch selection pill */
+      .swatch-btn {
+        width: 32px;
+        height: 32px;
+        border-radius: 999px;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        position: relative;
+      }
+      .swatch-btn.active {
+        outline: 2px solid #0071e3;
+        outline-offset: 3px;
+      }
+
+      /* Animated Hamburger Menu Button */
+      .hamburger-btn {
+        width: 36px;
+        height: 36px;
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        position: relative;
+      }
+
+      .hamburger-line {
+        display: block;
+        width: 18px;
+        height: 1.5px;
+        background-color: currentColor;
+        border-radius: 999px;
+        transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.25s ease;
+        transform-origin: center;
+      }
+
+      .hamburger-btn.is-active .hamburger-line:first-child {
+        transform: translateY(3.75px) rotate(45deg);
+      }
+
+      .hamburger-btn.is-active .hamburger-line:last-child {
+        transform: translateY(-3.75px) rotate(-45deg);
+      }
+
+      /* Mobile Navigation Panel: smooth top-to-bottom slide transition with Apple decelerating curve */
+      .mobile-nav-panel {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 44px;
+        height: calc(100vh - 44px);
+        height: calc(100dvh - 44px);
+        background-color: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(28px);
+        -webkit-backdrop-filter: blur(28px);
+        z-index: 40;
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: transform 0.42s cubic-bezier(0.32, 0.72, 0, 1),
+                    opacity 0.28s ease,
+                    visibility 0.42s;
+        will-change: transform, opacity;
+      }
+
+      .mobile-nav-panel.is-open {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+      }
+
+      /* Staggered cascading entry for menu links */
+      .mobile-nav-link-item {
+        opacity: 0;
+        transform: translateY(-12px);
+        transition: opacity 0.3s ease, transform 0.38s cubic-bezier(0.32, 0.72, 0, 1);
+      }
+
+      .mobile-nav-panel.is-open .mobile-nav-link-item {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .mobile-nav-panel.is-open .mobile-nav-link-item:nth-child(1) { transition-delay: 0.08s; }
+      .mobile-nav-panel.is-open .mobile-nav-link-item:nth-child(2) { transition-delay: 0.12s; }
+      .mobile-nav-panel.is-open .mobile-nav-link-item:nth-child(3) { transition-delay: 0.16s; }
+      .mobile-nav-panel.is-open .mobile-nav-link-item:nth-child(4) { transition-delay: 0.20s; }
+      .mobile-nav-panel.is-open .mobile-nav-link-item:nth-child(5) { transition-delay: 0.24s; }
+
+      /* Mobile Navigation Links: left-to-right blue text fill sweep with blur effect */
+      .mobile-nav-link {
+        display: inline-block;
+        width: fit-content;
+        font-size: 28px;
+        line-height: 1.25;
+        font-weight: 600;
+        letter-spacing: -0.025em;
+        text-decoration: none;
+        /* Softened feathered gradient boundary for diffused/blurred color spread */
+        background-image: linear-gradient(
+          to right,
+          #0071e3 0%,
+          #0071e3 36%,
+          rgba(0, 113, 227, 0.85) 44%,
+          rgba(0, 113, 227, 0.4) 49%,
+          rgba(29, 29, 31, 0.6) 53%,
+          #1d1d1f 60%,
+          #1d1d1f 100%
+        );
+        background-size: 220% 100%;
+        background-position: 100% 0;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: #1d1d1f;
+        filter: drop-shadow(0 0 0px rgba(0, 113, 227, 0));
+        transition: background-position 0.48s cubic-bezier(0.25, 1, 0.5, 1),
+                    filter 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+        cursor: pointer;
+        padding-top: 4px;
+        padding-bottom: 4px;
+      }
+
+      .mobile-nav-link:hover,
+      .mobile-nav-link:focus,
+      .mobile-nav-link:active {
+        background-position: 0 0;
+        filter: drop-shadow(0 0 10px rgba(0, 113, 227, 0.5)) drop-shadow(0 0 3px rgba(0, 113, 227, 0.4));
+      }
+
+      /* Clean subtle custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f5f5f7;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #d6d6d6;
+        border-radius: 999px;
+      }
+    </style>
+  </head>
+  <body class="bg-white text-[#1d1d1f] antialiased selection:bg-[#0071e3] selection:text-white">
+
+    <!-- SVG Symbol Definitions (including exact Galaxia 5-unit metaball logo) -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="hidden">
+      <!-- Unit dumbbell shape with organic curves -->
+      <defs>
+        <path id="galaxia-unit-symbol" d="M -12,-20.2 C -6,-15.5 -4,-11 0,-11 C 4,-11 6,-15.5 12,-20.2 A 23.5 23.5 0 1 1 12,20.2 C 6,15.5 4,11 0,11 C -4,11 -6,15.5 -12,20.2 A 23.5 23.5 0 1 1 -12,-20.2 Z" fill="currentColor" />
+        <g id="galaxia-logo-full">
+          <use href="#galaxia-unit-symbol" transform="rotate(0) translate(0, 80)" />
+          <use href="#galaxia-unit-symbol" transform="rotate(72) translate(0, 80)" />
+          <use href="#galaxia-unit-symbol" transform="rotate(144) translate(0, 80)" />
+          <use href="#galaxia-unit-symbol" transform="rotate(216) translate(0, 80)" />
+          <use href="#galaxia-unit-symbol" transform="rotate(288) translate(0, 80)" />
+        </g>
+      </defs>
+    </svg>
+
+    <!-- Top Announcement Ribbon -->
+    <div id="promo-ribbon" class="bg-[#f5f5f7] text-center py-2 px-4 text-[13px] text-[#1d1d1f] border-b border-[#d6d6d6]/40">
+      <p class="inline-flex items-center gap-1.5 flex-wrap justify-center font-normal">
+        <span>Experience Galaxia at an Apple Store or authorized retailer with Personalized Spatial Audio.</span>
+        <a href="#contacto" class="text-[#0066cc] hover:underline font-medium inline-flex items-center">
+          Book a listening session <span class="ml-0.5">›</span>
+        </a>
+      </p>
+    </div>
+
+    <!-- Global Navigation Bar (Sticky 44px) -->
+    <header class="sticky top-0 z-50 bg-[#ffffff]/80 backdrop-blur-xl border-b border-[#d6d6d6]/50 transition-colors duration-200">
+      <nav class="max-w-[1200px] mx-auto h-11 px-6 flex items-center justify-between text-[12px] text-[#1d1d1f]">
+        
+        <!-- Brand Logo & Name -->
+        <a href="#" class="flex items-center gap-2 hover:opacity-80 transition-opacity" aria-label="Galaxia Home">
+          <svg viewBox="0 0 260 260" class="w-5 h-5 text-[#1d1d1f]">
+            <use href="#galaxia-logo-full" transform="translate(130, 130)" />
+          </svg>
+          <span class="text-[15px] font-semibold tracking-tight text-[#1d1d1f]">galaxia</span>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <div class="hidden md:flex items-center space-x-8 text-[13px] font-normal text-[#1d1d1f]">
+          <a href="#acerca-de" class="hover:text-[#0071e3] transition-colors">Design</a>
+          <a href="#funcionalidad" class="hover:text-[#0071e3] transition-colors">Sound</a>
+          <a href="#caracteristicas" class="hover:text-[#0071e3] transition-colors">Features</a>
+          <a href="#acabados" class="hover:text-[#0071e3] transition-colors">Finishes</a>
+          <a href="#contacto" class="hover:text-[#0071e3] transition-colors">Contact</a>
+        </div>
+
+        <!-- Action CTA -->
+        <div class="flex items-center gap-3">
+          <a href="#contacto" class="apple-pill-btn apple-pill-btn-primary text-[13px] py-1.5 px-4 font-medium">
+            Buy
+          </a>
+          <!-- Mobile Menu Toggle Button (Animated Hamburger to X) -->
+          <button id="mobile-menu-btn" class="hamburger-btn md:hidden text-[#1d1d1f] hover:text-[#0071e3] focus:outline-none" aria-label="Open menu" aria-expanded="false">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Mobile Navigation Drawer (Top-to-Bottom Slide Transition) -->
+    <div id="mobile-menu" class="mobile-nav-panel md:hidden px-8 py-8 flex flex-col justify-between overflow-y-auto border-b border-[#d6d6d6]/50 shadow-2xl" aria-hidden="true">
+      <div class="flex flex-col space-y-5 pt-2">
+        <div class="mobile-nav-link-item">
+          <a href="#acerca-de" class="mobile-nav-link">Design</a>
+        </div>
+        <div class="mobile-nav-link-item">
+          <a href="#funcionalidad" class="mobile-nav-link">Sound</a>
+        </div>
+        <div class="mobile-nav-link-item">
+          <a href="#caracteristicas" class="mobile-nav-link">Features</a>
+        </div>
+        <div class="mobile-nav-link-item">
+          <a href="#acabados" class="mobile-nav-link">Finishes</a>
+        </div>
+        <div class="mobile-nav-link-item">
+          <a href="#contacto" class="mobile-nav-link">Contact</a>
+        </div>
+      </div>
+      <div class="pt-6 pb-2 border-t border-[#d6d6d6]/40 flex flex-col sm:flex-row sm:items-center justify-between text-[13px] text-[#707070] gap-2">
+        <span>Galaxia Wireless Over-Ear</span>
+        <span>40-hour Battery · Lossless Hi-Res</span>
+      </div>
+    </div>
+
+    <main>
+      <!-- ========================================================= -->
+      <!-- 1. HERO SECTION (White Canvas #ffffff)                    -->
+      <!-- ========================================================= -->
+      <section id="hero" class="relative bg-white pt-16 md:pt-24 pb-20 md:pb-28 overflow-hidden">
+        <div class="max-w-[1200px] mx-auto px-6 text-center">
+          
+          <!-- "New" Badge in Warm Ember (#b64400) -->
+          <div class="inline-flex items-center gap-2 mb-3">
+            <span class="text-[13px] md:text-[14px] font-semibold text-[#b64400] tracking-wide uppercase">
+              New
+            </span>
+            <span class="text-[13px] md:text-[14px] text-[#707070] font-normal">
+              · Official unveiling
+            </span>
+          </div>
+
+          <!-- Product Name Eyebrow -->
+          <div class="flex items-center justify-center gap-2 mb-2">
+            <svg viewBox="0 0 260 260" class="w-6 h-6 text-[#1d1d1f]">
+              <use href="#galaxia-logo-full" transform="translate(130, 130)" />
+            </svg>
+            <h2 class="text-[20px] md:text-[22px] font-semibold tracking-tight text-[#1d1d1f]">
+              galaxia
+            </h2>
+          </div>
+
+          <!-- Majestic SF Pro Display Hero Headline -->
+          <h1 class="apple-headline text-[#1d1d1f] max-w-4xl mx-auto mb-6">
+            Sound without gravity.
+          </h1>
+
+          <!-- Whisper Subhead -->
+          <p class="apple-subhead max-w-2xl mx-auto mb-8 font-normal">
+            A symphony of aerospace engineering, custom electrodynamic drivers, and active noise cancellation that redefines acoustic purity.
+          </p>
+
+          <!-- Primary CTAs -->
+          <div class="flex flex-wrap items-center justify-center gap-4 mb-4">
+            <a href="#contacto" class="apple-pill-btn apple-pill-btn-primary">
+              Buy from $579
+            </a>
+            <a href="#funcionalidad" class="apple-pill-btn apple-pill-btn-secondary">
+              Explore acoustics
+            </a>
+          </div>
+
+          <div class="mb-12">
+            <a href="#acerca-de" class="apple-link-arrow text-[15px]">
+              Watch the acoustic engineering film <span class="text-[18px]">›</span>
+            </a>
+          </div>
+
+          <!-- Interactive Finish Swatches Selector in Hero -->
+          <div class="inline-flex items-center bg-[#f5f5f7] rounded-full px-5 py-2.5 gap-4 mb-10 border border-[#d6d6d6]/30">
+            <span class="text-[13px] text-[#707070] font-medium mr-1">Finish: <span id="hero-finish-name" class="text-[#1d1d1f] font-semibold">Space Gray</span></span>
+            <div class="flex items-center gap-2.5">
+              <button class="swatch-btn active" style="background-color: #2e3642;" data-finish="Space Gray" data-desc="Anodized polished aluminum in deep charcoal with color-matched breathable knit canopy." aria-label="Finish Space Gray"></button>
+              <button class="swatch-btn" style="background-color: #e3e4e5;" data-finish="Pure Silver" data-desc="Machined aluminum with reflective satin finish and pearl white knit mesh." aria-label="Finish Pure Silver"></button>
+              <button class="swatch-btn" style="background-color: #f0e4d3;" data-finish="Starlight" data-desc="Warm champagne hue with subtle gold reflections across earcups and pivots." aria-label="Finish Starlight"></button>
+              <button class="swatch-btn" style="background-color: #c8d8e0;" data-finish="Sky Blue" data-desc="Nordic pastel blue finished with matte ceramic polymer coating." aria-label="Finish Sky Blue"></button>
+              <button class="swatch-btn" style="background-color: #dddc8c;" data-finish="Citrus Green" data-desc="Luminous soft lime green inspired by natural light reflections." aria-label="Finish Citrus Green"></button>
+            </div>
+          </div>
+
+          <!-- Hero Product Image Display (Clean, High-Key Apple Product Photograph) -->
+          <div class="relative max-w-4xl mx-auto mt-2">
+            <div class="rounded-[28px] overflow-hidden bg-white">
+              <img
+                id="hero-main-img"
+                src="/assets/galaxia_hero_headphone_1788775539307.jpg"
+                alt="Galaxia headphones in top and frontal view"
+                class="w-full h-auto max-h-[580px] object-contain mx-auto transition-transform duration-500 hover:scale-[1.01]"
+                referrerpolicy="no-referrer"
+              />
+            </div>
+            <p id="hero-finish-desc" class="text-[14px] text-[#707070] mt-4 max-w-md mx-auto italic font-normal">
+              Anodized polished aluminum in deep charcoal with color-matched breathable knit canopy.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ========================================================= -->
+      <!-- 2. ABOUT SECTION (Canvas Gray #f5f5f7)                    -->
+      <!-- ========================================================= -->
+      <section id="acerca-de" class="bg-[#f5f5f7] py-24 md:py-32">
+        <div class="max-w-[1200px] mx-auto px-6">
+          
+          <!-- Section Header (28-32px SF Pro Display weight 600) -->
+          <div class="max-w-3xl mb-16">
+            <p class="text-[14px] font-semibold text-[#707070] uppercase tracking-wider mb-2">Design & Materials</p>
+            <h2 class="apple-section-title text-[#1d1d1f] mb-4">
+              Every millimetre sculpted for acoustic weightlessness.
+            </h2>
+            <p class="apple-body text-[19px] leading-relaxed">
+              From the canopy mesh to memory foam ear cushions, Galaxia was conceived from the ground up to form an airtight acoustic seal that conforms to every head shape without pressure points.
+            </p>
+          </div>
+
+          <!-- Feature Showcase Card 1: 2-Column Split (Image + Architecture) -->
+          <div class="apple-card p-8 md:p-14 mb-10 bg-white grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            <div class="lg:col-span-6 space-y-6">
+              <span class="inline-block text-[13px] font-semibold text-[#0071e3] tracking-wide uppercase">
+                Dual-Chamber Architecture
+              </span>
+              <h3 class="text-[32px] md:text-[42px] font-semibold tracking-tight text-[#1d1d1f] leading-tight">
+                The driver that refuses distortion.
+              </h3>
+              <p class="apple-body">
+                Engineered by Galaxia, the custom 40&nbsp;mm dynamic transducer features an exclusive dual-neodymium ring magnet motor inspired by the floor-standing monitors of world-class mastering studios.
+              </p>
+              <ul class="space-y-3 pt-2 text-[15px] text-[#1d1d1f]">
+                <li class="flex items-center gap-3">
+                  <span class="w-1.5 h-1.5 rounded-full bg-[#0071e3]"></span>
+                  <span><strong>Total harmonic distortion under 0.08%</strong> across the entire audible spectrum.</span>
+                </li>
+                <li class="flex items-center gap-3">
+                  <span class="w-1.5 h-1.5 rounded-full bg-[#0071e3]"></span>
+                  <span>Deep, impactful bass without masking treble textures extending up to 45&nbsp;kHz.</span>
+                </li>
+                <li class="flex items-center gap-3">
+                  <span class="w-1.5 h-1.5 rounded-full bg-[#0071e3]"></span>
+                  <span>Electroacoustic knit mesh precision-engineered with 20-micron microperforations.</span>
+                </li>
+              </ul>
+              <div class="pt-2">
+                <a href="#caracteristicas" class="apple-link-arrow text-[16px]">
+                  Explore driver specifications <span>›</span>
+                </a>
+              </div>
+            </div>
+            <div class="lg:col-span-6">
+              <div class="rounded-[28px] overflow-hidden bg-[#f5f5f7]">
+                <img
+                  src="/assets/galaxia_driver_acoustic_1788775555517.jpg"
+                  alt="Galaxia 40mm precision acoustic driver with dual-neodymium motor"
+                  class="w-full h-auto object-cover rounded-[28px]"
+                  referrerpolicy="no-referrer"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Feature Cards Grid (28px radius, white surface, zero shadow) -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <!-- Card 1 -->
+            <div class="apple-card p-8 md:p-10 bg-white flex flex-col justify-between">
+              <div>
+                <div class="w-12 h-12 rounded-full bg-[#f5f5f7] flex items-center justify-center text-[#1d1d1f] mb-6">
+                  <svg class="w-6 h-6 text-[#1d1d1f]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                  </svg>
+                </div>
+                <h4 class="text-[22px] font-semibold text-[#1d1d1f] mb-3">Suspended canopy</h4>
+                <p class="apple-body text-[15px]">
+                  The breathable knit canopy distributes weight evenly to eliminate on-head pressure points during extended studio sessions.
+                </p>
+              </div>
+              <div class="mt-8 pt-4 border-t border-[#d6d6d6]/40 text-[13px] text-[#707070]">
+                Polished stainless steel frame
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="apple-card p-8 md:p-10 bg-white flex flex-col justify-between">
+              <div>
+                <div class="w-12 h-12 rounded-full bg-[#f5f5f7] flex items-center justify-center text-[#1d1d1f] mb-6">
+                  <svg class="w-6 h-6 text-[#1d1d1f]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                  </svg>
+                </div>
+                <h4 class="text-[22px] font-semibold text-[#1d1d1f] mb-3">4-point pivot mechanism</h4>
+                <p class="apple-body text-[15px]">
+                  Telescoping arms extend smoothly and maintain constant friction to cradle and conform to every cranial contour.
+                </p>
+              </div>
+              <div class="mt-8 pt-4 border-t border-[#d6d6d6]/40 text-[13px] text-[#707070]">
+                Independent rotation articulation
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="apple-card p-8 md:p-10 bg-white flex flex-col justify-between">
+              <div>
+                <div class="w-12 h-12 rounded-full bg-[#f5f5f7] flex items-center justify-center text-[#1d1d1f] mb-6">
+                  <svg class="w-6 h-6 text-[#1d1d1f]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 100-6 3 3 0 000 6z"></path>
+                  </svg>
+                </div>
+                <h4 class="text-[22px] font-semibold text-[#1d1d1f] mb-3">Acoustic memory foam</h4>
+                <p class="apple-body text-[15px]">
+                  Custom-engineered memory foam cushions wrapped in acoustically transparent textile create unmatched passive isolation before ANC even engages.
+                </p>
+              </div>
+              <div class="mt-8 pt-4 border-t border-[#d6d6d6]/40 text-[13px] text-[#707070]">
+                Magnetic snap-to-fit replacement
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ========================================================= -->
+      <!-- 3. FUNCTIONALITY SECTION (White Canvas #ffffff)           -->
+      <!-- ========================================================= -->
+      <section id="funcionalidad" class="bg-white py-24 md:py-32">
+        <div class="max-w-[1200px] mx-auto px-6">
+          
+          <!-- Section Header -->
+          <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="text-[14px] font-semibold text-[#0071e3] tracking-wide uppercase">Acoustic Intelligence</span>
+            <h2 class="apple-section-title text-[#1d1d1f] mt-2 mb-4">
+              Silence is only the starting point.
+            </h2>
+            <p class="apple-body text-[19px]">
+              Equipped with two proprietary computational audio chips, Galaxia processes audio 48,000 times per second to eliminate exterior noise or open you to the world in an instant.
+            </p>
+          </div>
+
+          <!-- Interactive Acoustic Mode Simulator & Live Sound Visualizer -->
+          <div class="apple-card bg-[#f5f5f7] p-8 md:p-14 mb-16">
+            <div class="flex flex-col lg:flex-row gap-10 items-center justify-between mb-8">
+              <div>
+                <h3 class="text-[24px] md:text-[30px] font-semibold text-[#1d1d1f] mb-2">
+                  Listening Mode Simulator
+                </h3>
+                <p class="text-[15px] text-[#707070]">
+                  Toggle between live processing modes to observe real-time acoustic waveform response.
+                </p>
+              </div>
+
+              <!-- Mode Selector Tabs (Pill style) -->
+              <div class="flex flex-wrap gap-2 p-1.5 bg-[#e8e8ed] rounded-full">
+                <button id="btn-mode-anc" class="mode-tab-btn apple-pill-btn apple-pill-btn-primary text-[14px] py-2 px-5" data-mode="anc">
+                  Active Noise Cancellation (ANC)
+                </button>
+                <button id="btn-mode-transparency" class="mode-tab-btn apple-pill-btn text-[14px] py-2 px-5 text-[#1d1d1f] hover:text-[#0071e3]" data-mode="transparency">
+                  Transparency Mode
+                </button>
+                <button id="btn-mode-spatial" class="mode-tab-btn apple-pill-btn text-[14px] py-2 px-5 text-[#1d1d1f] hover:text-[#0071e3]" data-mode="spatial">
+                  360° Spatial Audio
+                </button>
+              </div>
+            </div>
+
+            <!-- Real-time HTML5 Canvas Wave Visualizer -->
+            <div class="bg-[#1d1d1f] rounded-[22px] p-6 text-white relative overflow-hidden">
+              <div class="flex items-center justify-between text-[13px] text-[#707070] mb-4">
+                <span class="flex items-center gap-2">
+                  <span id="visualizer-status-dot" class="w-2 h-2 rounded-full bg-[#0071e3] animate-ping"></span>
+                  <span id="visualizer-mode-label" class="text-white font-medium">Active Noise Cancellation (ANC): Inverted Anti-Phase Active</span>
+                </span>
+                <span class="font-mono text-[12px] text-[#e3e4e5]/80">48 kHz / 24-bit DSP</span>
+              </div>
+
+              <canvas id="acousticCanvas" class="w-full h-44 rounded-xl block"></canvas>
+
+              <div class="mt-4 flex flex-wrap items-center justify-between text-[13px] text-[#707070] pt-3 border-t border-white/10">
+                <p id="visualizer-explanation" class="text-[#e3e4e5] max-w-xl">
+                  External microphones detect ambient noise and generate an equal, opposite anti-phase waveform to cancel sound before it reaches your eardrums.
+                </p>
+                <div class="flex items-center gap-4 mt-2 sm:mt-0 font-mono text-[12px] text-[#707070]">
+                  <span>Attenuation: <strong id="metric-db" class="text-white">-38 dB</strong></span>
+                  <span>Latency: <strong id="metric-ms" class="text-white">0.02 ms</strong></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2-Column Detail of Hardware Controls & Dynamic Head Tracking -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            
+            <!-- Dial & Touch Control Showcase -->
+            <div class="apple-card p-8 md:p-12 bg-[#f5f5f7] flex flex-col justify-between">
+              <div>
+                <span class="text-[13px] font-semibold text-[#0071e3] uppercase tracking-wide">Precision Tactile Control</span>
+                <h4 class="text-[28px] font-semibold text-[#1d1d1f] mt-2 mb-3">Galaxia Haptic Crown.</h4>
+                <p class="apple-body mb-6">
+                  Inspired by Swiss haute horlogerie, the knurled rotary crown lets you adjust volume with millimetric tactility, pause songs, skip tracks, or summon your voice assistant.
+                </p>
+                <!-- Interactive Dial Simulation Widget -->
+                <div class="bg-white rounded-2xl p-6 text-center border border-[#d6d6d6]/40">
+                  <p class="text-[12px] text-[#707070] uppercase font-semibold mb-2">Try the volume control</p>
+                  <div class="flex items-center justify-center gap-4 my-3">
+                    <button id="btn-vol-down" class="w-10 h-10 rounded-full bg-[#f5f5f7] hover:bg-[#e8e8ed] flex items-center justify-center text-[#1d1d1f] font-bold text-lg" aria-label="Decrease volume">−</button>
+                    <div class="w-48 bg-[#f5f5f7] h-3 rounded-full overflow-hidden p-0.5">
+                      <div id="volume-indicator" class="bg-[#0071e3] h-full rounded-full transition-all duration-150" style="width: 72%;"></div>
+                    </div>
+                    <button id="btn-vol-up" class="w-10 h-10 rounded-full bg-[#f5f5f7] hover:bg-[#e8e8ed] flex items-center justify-center text-[#1d1d1f] font-bold text-lg" aria-label="Increase volume">+</button>
+                  </div>
+                  <p class="text-[13px] text-[#1d1d1f] font-medium">
+                    Current volume: <span id="volume-text" class="text-[#0071e3]">72%</span>
+                  </p>
+                </div>
+              </div>
+              <div class="mt-8 text-[14px] text-[#707070]">
+                Instant vibrational feedback powered by an internal high-fidelity taptic engine.
+              </div>
+            </div>
+
+            <!-- Spatial Audio & Sensors -->
+            <div class="apple-card p-8 md:p-12 bg-[#f5f5f7] flex flex-col justify-between">
+              <div>
+                <span class="text-[13px] font-semibold text-[#0071e3] uppercase tracking-wide">Dynamic Head Tracking</span>
+                <h4 class="text-[28px] font-semibold text-[#1d1d1f] mt-2 mb-3">Personalized Spatial Audio.</h4>
+                <p class="apple-body mb-6">
+                  Built-in gyroscopes and accelerometers follow your head movements to anchor sound sources in 3D acoustic space. Movies sound as if you are seated in an Atmos theatre.
+                </p>
+                <div class="bg-white rounded-2xl p-6 flex items-center gap-5 border border-[#d6d6d6]/40">
+                  <div class="w-14 h-14 rounded-full bg-[#f5f5f7] flex items-center justify-center flex-shrink-0">
+                    <svg class="w-8 h-8 text-[#0071e3]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <circle cx="12" cy="12" r="9" stroke-width="1.5"></circle>
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 7v10M7 12h10"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <h5 class="text-[16px] font-semibold text-[#1d1d1f]">Tailored acoustic profile</h5>
+                    <p class="text-[13px] text-[#707070] mt-1">
+                      Ear geometry scanning computes custom HRTF filters attuned uniquely to your ear anatomy.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-8 text-[14px] text-[#707070]">
+                Compatible with Dolby Atmos, streaming cinematic releases, and spatial audio masters.
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ========================================================= -->
+      <!-- 4. FEATURES SECTION (Canvas Gray #f5f5f7)                 -->
+      <!-- ========================================================= -->
+      <section id="caracteristicas" class="bg-[#f5f5f7] py-24 md:py-32">
+        <div class="max-w-[1200px] mx-auto px-6">
+          
+          <div class="max-w-3xl mb-16">
+            <span class="text-[14px] font-semibold text-[#707070] uppercase tracking-wider">Technical Specifications</span>
+            <h2 class="apple-section-title text-[#1d1d1f] mt-2 mb-4">
+              Endless power. Uncompromising fidelity.
+            </h2>
+            <p class="apple-body text-[19px]">
+              Everything you need to work, travel, or immerse in music with master studio resolution for days on end.
+            </p>
+          </div>
+
+          <!-- Bento Grid of 28px Rounded Feature Cards -->
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-8 mb-12">
+            
+            <!-- Battery Feature Card (Large 8-col) -->
+            <div class="apple-card p-8 md:p-12 bg-white md:col-span-8 flex flex-col justify-between">
+              <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
+                <div>
+                  <span class="text-[13px] font-semibold text-[#0071e3] uppercase">Extended Battery Life</span>
+                  <h3 class="text-[34px] md:text-[44px] font-bold text-[#1d1d1f] mt-1 tracking-tight">
+                    40 continuous hours.
+                  </h3>
+                  <p class="text-[16px] text-[#707070] mt-1">With Active Noise Cancellation and Spatial Audio enabled.</p>
+                </div>
+                <div class="text-right">
+                  <span class="text-[52px] font-bold text-[#1d1d1f] tracking-tight">40<span class="text-[28px] text-[#707070] font-normal">h</span></span>
+                </div>
+              </div>
+
+              <!-- Fast Charge Feature Callout -->
+              <div class="bg-[#f5f5f7] rounded-2xl p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div class="flex items-center gap-4">
+                  <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#0071e3]">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <h5 class="text-[16px] font-semibold text-[#1d1d1f]">Ultra-fast USB-C Charging</h5>
+                    <p class="text-[14px] text-[#707070]">Just a 5-minute charge delivers 3 full hours of continuous playback.</p>
+                  </div>
+                </div>
+                <span class="text-[13px] font-medium text-[#0071e3] whitespace-nowrap">Universal connector</span>
+              </div>
+            </div>
+
+            <!-- Lossless Audio Card (4-col) -->
+            <div class="apple-card p-8 md:p-12 bg-white md:col-span-4 flex flex-col justify-between">
+              <div>
+                <span class="text-[13px] font-semibold text-[#0071e3] uppercase">Lossless Audio</span>
+                <h3 class="text-[28px] font-bold text-[#1d1d1f] mt-2 mb-3 leading-snug">
+                  Up to 24-bit / 96 kHz resolution.
+                </h3>
+                <p class="apple-body text-[15px]">
+                  Direct USB-C wired connection for bit-perfect lossless audio or via Galaxia UltraWide Bluetooth 5.4 codec.
+                </p>
+              </div>
+              <div class="mt-8 pt-4 border-t border-[#d6d6d6]/40 flex items-center justify-between text-[13px] text-[#707070]">
+                <span>Zero latency</span>
+                <span class="font-semibold text-[#1d1d1f]">Hi-Res Certified</span>
+              </div>
+            </div>
+
+            <!-- Microphones Card (4-col) -->
+            <div class="apple-card p-8 md:p-12 bg-white md:col-span-4 flex flex-col justify-between">
+              <div>
+                <span class="text-[13px] font-semibold text-[#0071e3] uppercase">Voice Clarity</span>
+                <h3 class="text-[28px] font-bold text-[#1d1d1f] mt-2 mb-3 leading-snug">
+                  8 beamforming microphones.
+                </h3>
+                <p class="apple-body text-[15px]">
+                  Isolates your voice on calls and conferences while filtering out wind gusts and background city bustle using advanced voice isolation algorithms.
+                </p>
+              </div>
+              <div class="mt-8 pt-4 border-t border-[#d6d6d6]/40 text-[13px] text-[#707070]">
+                Crystal-clear studio voice
+              </div>
+            </div>
+
+            <!-- Adaptive EQ Card (4-col) -->
+            <div class="apple-card p-8 md:p-12 bg-white md:col-span-4 flex flex-col justify-between">
+              <div>
+                <span class="text-[13px] font-semibold text-[#0071e3] uppercase">Active Equalization</span>
+                <h3 class="text-[28px] font-bold text-[#1d1d1f] mt-2 mb-3 leading-snug">
+                  Real-time Adaptive EQ.
+                </h3>
+                <p class="apple-body text-[15px]">
+                  Inward-facing microphones measure exactly what you hear and dynamically adjust bass and mid frequencies in milliseconds.
+                </p>
+              </div>
+              <div class="mt-8 pt-4 border-t border-[#d6d6d6]/40 text-[13px] text-[#707070]">
+                Personalized acoustic response
+              </div>
+            </div>
+
+            <!-- Instant Device Switching Card (4-col) -->
+            <div class="apple-card p-8 md:p-12 bg-white md:col-span-4 flex flex-col justify-between">
+              <div>
+                <span class="text-[13px] font-semibold text-[#0071e3] uppercase">Seamless Ecosystem</span>
+                <h3 class="text-[28px] font-bold text-[#1d1d1f] mt-2 mb-3 leading-snug">
+                  Automatic device switching.
+                </h3>
+                <p class="apple-body text-[15px]">
+                  Switch seamlessly from watching a movie on your laptop to answering a phone call in an instant, without fiddling with pairing menus.
+                </p>
+              </div>
+              <div class="mt-8 pt-4 border-t border-[#d6d6d6]/40 text-[13px] text-[#707070]">
+                Instant multi-device handover
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Color Variant Showcase Band (Two Side-by-Side Cards as specified in Apple Style Guide) -->
+          <div id="acabados" class="pt-8">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+              <span class="text-[14px] font-semibold text-[#707070] uppercase tracking-wider">Finishes Collection</span>
+              <h3 class="apple-section-title text-[#1d1d1f] mt-1">
+                Five unforgettable hues.
+              </h3>
+            </div>
+
+            <div class="apple-card p-8 md:p-12 bg-white mb-6">
+              <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div class="lg:col-span-6">
+                  <div class="rounded-[28px] overflow-hidden bg-[#f5f5f7]">
+                    <img
+                      src="/assets/galaxia_colors_duo_1788775594063.jpg"
+                      alt="Galaxia headphones finish collection in Sky Blue and Starlight"
+                      class="w-full h-auto object-cover rounded-[28px]"
+                      referrerpolicy="no-referrer"
+                    />
+                  </div>
+                </div>
+                <div class="lg:col-span-6 space-y-6">
+                  <h4 class="text-[32px] font-semibold text-[#1d1d1f] tracking-tight">
+                    Precision anodization. Mineral beauty.
+                  </h4>
+                  <p class="apple-body">
+                    Each earcup is carved from a single solid billet of aerospace-grade aluminum and finished with an electrochemical anodization process that yields deep luminescence and scratch resistance.
+                  </p>
+                  <div class="grid grid-cols-2 gap-4 pt-2">
+                    <div class="p-4 rounded-xl bg-[#f5f5f7]">
+                      <div class="flex items-center gap-2 mb-1">
+                        <span class="w-3 h-3 rounded-full bg-[#c8d8e0]"></span>
+                        <span class="text-[14px] font-semibold text-[#1d1d1f]">Sky Blue</span>
+                      </div>
+                      <p class="text-[13px] text-[#707070]">Cool frost blue with contrasting knit canopy.</p>
+                    </div>
+                    <div class="p-4 rounded-xl bg-[#f5f5f7]">
+                      <div class="flex items-center gap-2 mb-1">
+                        <span class="w-3 h-3 rounded-full bg-[#f0e4d3]"></span>
+                        <span class="text-[14px] font-semibold text-[#1d1d1f]">Starlight</span>
+                      </div>
+                      <p class="text-[13px] text-[#707070]">Warm champagne luminosity.</p>
+                    </div>
+                    <div class="p-4 rounded-xl bg-[#f5f5f7]">
+                      <div class="flex items-center gap-2 mb-1">
+                        <span class="w-3 h-3 rounded-full bg-[#2e3642]"></span>
+                        <span class="text-[14px] font-semibold text-[#1d1d1f]">Space Gray</span>
+                      </div>
+                      <p class="text-[13px] text-[#707070]">Unmistakable technical sophistication.</p>
+                    </div>
+                    <div class="p-4 rounded-xl bg-[#f5f5f7]">
+                      <div class="flex items-center gap-2 mb-1">
+                        <span class="w-3 h-3 rounded-full bg-[#dddc8c]"></span>
+                        <span class="text-[14px] font-semibold text-[#1d1d1f]">Citrus Green</span>
+                      </div>
+                      <p class="text-[13px] text-[#707070]">Vibrant contemporary freshness.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ========================================================= -->
+      <!-- 5. CONTACT & CONCIERGE SECTION (White Canvas #ffffff)     -->
+      <!-- ========================================================= -->
+      <section id="contacto" class="bg-white py-24 md:py-32">
+        <div class="max-w-[1200px] mx-auto px-6">
+          
+          <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="text-[14px] font-semibold text-[#0071e3] tracking-wide uppercase">Support & Consultation</span>
+            <h2 class="apple-section-title text-[#1d1d1f] mt-2 mb-4">
+              Have questions? Talk to a Galaxia specialist.
+            </h2>
+            <p class="apple-body text-[19px]">
+              Whether you are looking for personalized guidance to reserve your pair, request an in-store listening session, or place a studio order, our team is ready to assist.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+            
+            <!-- Contact Form in 28px Rounded Canvas Gray Box -->
+            <div class="lg:col-span-7 apple-card bg-[#f5f5f7] p-8 md:p-12">
+              <h3 class="text-[24px] font-semibold text-[#1d1d1f] mb-2">
+                Direct Inquiry Form
+              </h3>
+              <p class="text-[14px] text-[#707070] mb-8">
+                We will get back to you within 2 business hours via email or preferred telephone.
+              </p>
+
+              <!-- Interactive Form -->
+              <form id="contact-form" class="space-y-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <div>
+                    <label for="contact-name" class="block text-[13px] font-medium text-[#1d1d1f] mb-1.5">
+                      Full name
+                    </label>
+                    <input
+                      type="text"
+                      id="contact-name"
+                      required
+                      placeholder="e.g. Alex Morgan"
+                      class="w-full bg-white border border-[#d6d6d6] rounded-xl px-4 py-3 text-[15px] text-[#1d1d1f] placeholder-[#707070]/60 focus:outline-none focus:border-[#0071e3] transition-colors"
+                    />
+                  </div>
+                  <div>
+                    <label for="contact-email" class="block text-[13px] font-medium text-[#1d1d1f] mb-1.5">
+                      Email address
+                    </label>
+                    <input
+                      type="email"
+                      id="contact-email"
+                      required
+                      placeholder="alex@example.com"
+                      class="w-full bg-white border border-[#d6d6d6] rounded-xl px-4 py-3 text-[15px] text-[#1d1d1f] placeholder-[#707070]/60 focus:outline-none focus:border-[#0071e3] transition-colors"
+                    />
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <div>
+                    <label for="contact-topic" class="block text-[13px] font-medium text-[#1d1d1f] mb-1.5">
+                      Inquiry subject
+                    </label>
+                    <select
+                      id="contact-topic"
+                      class="w-full bg-white border border-[#d6d6d6] rounded-xl px-4 py-3 text-[15px] text-[#1d1d1f] focus:outline-none focus:border-[#0071e3] transition-colors"
+                    >
+                      <option value="compra">Order / Priority Reservation</option>
+                      <option value="cita">Appointment for In-Store Demo</option>
+                      <option value="tecnica">Technical & Compatibility Specs</option>
+                      <option value="empresas">Studio & Corporate Procurement</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label for="contact-finish" class="block text-[13px] font-medium text-[#1d1d1f] mb-1.5">
+                      Finish of interest
+                    </label>
+                    <select
+                      id="contact-finish"
+                      class="w-full bg-white border border-[#d6d6d6] rounded-xl px-4 py-3 text-[15px] text-[#1d1d1f] focus:outline-none focus:border-[#0071e3] transition-colors"
+                    >
+                      <option value="Space Gray">Space Gray</option>
+                      <option value="Pure Silver">Pure Silver</option>
+                      <option value="Starlight">Starlight</option>
+                      <option value="Sky Blue">Sky Blue</option>
+                      <option value="Citrus Green">Citrus Green</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label for="contact-message" class="block text-[13px] font-medium text-[#1d1d1f] mb-1.5">
+                    How can we help?
+                  </label>
+                  <textarea
+                    id="contact-message"
+                    rows="4"
+                    required
+                    placeholder="Tell us about your setup, questions about included accessories, or acoustic calibration needs..."
+                    class="w-full bg-white border border-[#d6d6d6] rounded-xl px-4 py-3 text-[15px] text-[#1d1d1f] placeholder-[#707070]/60 focus:outline-none focus:border-[#0071e3] transition-colors"
+                  ></textarea>
+                </div>
+
+                <div class="flex items-center gap-3">
+                  <input
+                    type="checkbox"
+                    id="contact-consent"
+                    required
+                    class="w-4 h-4 text-[#0071e3] rounded border-[#d6d6d6] focus:ring-[#0071e3]"
+                  />
+                  <label for="contact-consent" class="text-[13px] text-[#707070]">
+                    I agree to receive communications regarding Galaxia updates and product news in accordance with the privacy policy.
+                  </label>
+                </div>
+
+                <!-- Submit Button -->
+                <button
+                  type="submit"
+                  id="contact-submit-btn"
+                  class="apple-pill-btn apple-pill-btn-primary w-full sm:w-auto py-3 px-8 text-[16px] font-medium cursor-pointer"
+                >
+                  Request specialist consultation
+                </button>
+
+                <!-- Feedback Toast / Notice -->
+                <div id="contact-success-msg" class="hidden p-4 rounded-xl bg-white border border-[#d6d6d6] text-[14px] text-[#1d1d1f] mt-4">
+                  <div class="flex items-center gap-3">
+                    <span class="w-6 h-6 rounded-full bg-[#0071e3] text-white flex items-center justify-center font-bold text-xs">✓</span>
+                    <div>
+                      <p class="font-semibold">Inquiry received successfully!</p>
+                      <p class="text-[#707070] text-[13px]">A Galaxia sound specialist will contact you shortly.</p>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <!-- Direct Assistance & Services (5-col) -->
+            <div class="lg:col-span-5 space-y-6">
+              
+              <!-- Direct Support Channels Card -->
+              <div class="apple-card p-8 bg-[#f5f5f7]">
+                <h4 class="text-[20px] font-semibold text-[#1d1d1f] mb-4">
+                  Direct concierge channels
+                </h4>
+                <div class="space-y-4">
+                  <div class="flex items-start gap-4">
+                    <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#0071e3] flex-shrink-0">
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                      </svg>
+                    </div>
+                    <div>
+                      <h5 class="text-[15px] font-semibold text-[#1d1d1f]">Toll-free specialist line</h5>
+                      <p class="text-[13px] text-[#707070]">+1 (800) 555-0199 (Mon–Fri, 9:00 AM – 8:00 PM EST)</p>
+                    </div>
+                  </div>
+
+                  <div class="flex items-start gap-4">
+                    <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#0071e3] flex-shrink-0">
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                      </svg>
+                    </div>
+                    <div>
+                      <h5 class="text-[15px] font-semibold text-[#1d1d1f]">Live interactive chat</h5>
+                      <p class="text-[13px] text-[#707070]">Real-time assistance with acoustic engineers to answer hardware questions.</p>
+                    </div>
+                  </div>
+
+                  <div class="flex items-start gap-4">
+                    <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#0071e3] flex-shrink-0">
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                      </svg>
+                    </div>
+                    <div>
+                      <h5 class="text-[15px] font-semibold text-[#1d1d1f]">Private listening appointment</h5>
+                      <p class="text-[13px] text-[#707070]">Experience Galaxia with your own master library in an acoustically isolated studio suite.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Value Guarantees -->
+              <div class="apple-card p-8 bg-[#f5f5f7]">
+                <h4 class="text-[18px] font-semibold text-[#1d1d1f] mb-3">
+                  The Galaxia Experience Guarantee
+                </h4>
+                <ul class="space-y-3 text-[14px] text-[#707070]">
+                  <li class="flex items-center gap-2">
+                    <span class="text-[#0071e3] font-bold">✓</span>
+                    <span>Complimentary express courier delivery with next-day dispatch.</span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <span class="text-[#0071e3] font-bold">✓</span>
+                    <span>30-day trial period with free returns and no restocking fees.</span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <span class="text-[#0071e3] font-bold">✓</span>
+                    <span>3-year comprehensive manufacturer warranty and battery replacement coverage.</span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <span class="text-[#0071e3] font-bold">✓</span>
+                    <span>Complimentary precision laser engraving with custom initials or symbols.</span>
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+    </main>
+
+    <!-- ========================================================= -->
+    <!-- FOOTER & LEGAL FINE PRINT (Canvas Gray #f5f5f7)           -->
+    <!-- ========================================================= -->
+    <footer class="bg-[#f5f5f7] border-t border-[#d6d6d6] text-[#707070] text-[12px] pt-12 pb-16">
+      <div class="max-w-[1200px] mx-auto px-6">
+        
+        <!-- Legal Disclaimers (SF Pro Text 12px, #707070) -->
+        <div class="space-y-2.5 pb-8 border-b border-[#d6d6d6]/60 leading-relaxed text-[11px] md:text-[12px]">
+          <p>
+            1. <strong>Battery life and testing:</strong> Testing conducted by Galaxia in August 2026 using preproduction Galaxia headphones and software paired with benchmark production units. The playlist consisted of 358 unique audio tracks purchased from digital music stores (256-Kbps AAC encoding). Volume was set to 50% with Active Noise Cancellation enabled. Actual battery life varies by settings, environmental conditions, and usage.
+          </p>
+          <p>
+            2. <strong>Lossless Audio:</strong> High-resolution Lossless Audio requires a wired USB-C digital audio connection and compatible audio tracks encoded at 24-bit / 48 kHz or higher.
+          </p>
+          <p>
+            3. <strong>Personalized Spatial Audio:</strong> Requires a compatible source device with depth camera mapping to generate your custom acoustic HRTF profile and surround-format audio content.
+          </p>
+          <p>
+            4. Pricing includes applicable sales tax and environmental recycling fees. Availability and terms subject to change.
+          </p>
+        </div>
+
+        <!-- Sitemap Directory Grid -->
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-8 py-10 border-b border-[#d6d6d6]/60 text-[12px]">
+          <div>
+            <h5 class="font-semibold text-[#1d1d1f] mb-3">Galaxia</h5>
+            <ul class="space-y-2">
+              <li><a href="#hero" class="hover:text-[#1d1d1f] transition-colors">Overview</a></li>
+              <li><a href="#acerca-de" class="hover:text-[#1d1d1f] transition-colors">Acoustic Design</a></li>
+              <li><a href="#acabados" class="hover:text-[#1d1d1f] transition-colors">Finishes Collection</a></li>
+              <li><a href="#funcionalidad" class="hover:text-[#1d1d1f] transition-colors">Galaxia Driver</a></li>
+              <li><a href="#caracteristicas" class="hover:text-[#1d1d1f] transition-colors">Technical Specs</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h5 class="font-semibold text-[#1d1d1f] mb-3">Sound & Software</h5>
+            <ul class="space-y-2">
+              <li><a href="#funcionalidad" class="hover:text-[#1d1d1f] transition-colors">Active Noise Cancellation</a></li>
+              <li><a href="#funcionalidad" class="hover:text-[#1d1d1f] transition-colors">360° Spatial Audio</a></li>
+              <li><a href="#funcionalidad" class="hover:text-[#1d1d1f] transition-colors">Adaptive Equalization</a></li>
+              <li><a href="#caracteristicas" class="hover:text-[#1d1d1f] transition-colors">USB-C Lossless Audio</a></li>
+              <li><a href="#caracteristicas" class="hover:text-[#1d1d1f] transition-colors">HRTF Profile Calibration</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h5 class="font-semibold text-[#1d1d1f] mb-3">Services & Support</h5>
+            <ul class="space-y-2">
+              <li><a href="#contacto" class="hover:text-[#1d1d1f] transition-colors">Specialist Consultation</a></li>
+              <li><a href="#contacto" class="hover:text-[#1d1d1f] transition-colors">Book Listening Demo</a></li>
+              <li><a href="#contacto" class="hover:text-[#1d1d1f] transition-colors">Replacement Cushions</a></li>
+              <li><a href="#contacto" class="hover:text-[#1d1d1f] transition-colors">Galaxia Care+ Warranty</a></li>
+              <li><a href="#contacto" class="hover:text-[#1d1d1f] transition-colors">Order & Shipping Status</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h5 class="font-semibold text-[#1d1d1f] mb-3">Studios & Enterprise</h5>
+            <ul class="space-y-2">
+              <li><a href="#contacto" class="hover:text-[#1d1d1f] transition-colors">Galaxia for Creators</a></li>
+              <li><a href="#contacto" class="hover:text-[#1d1d1f] transition-colors">Studio Licensing</a></li>
+              <li><a href="#contacto" class="hover:text-[#1d1d1f] transition-colors">Volume Procurement</a></li>
+              <li><a href="#contacto" class="hover:text-[#1d1d1f] transition-colors">Acoustic Integration</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h5 class="font-semibold text-[#1d1d1f] mb-3">Galaxia Values</h5>
+            <ul class="space-y-2">
+              <li><a href="#" class="hover:text-[#1d1d1f] transition-colors">100% Recycled Aluminum</a></li>
+              <li><a href="#" class="hover:text-[#1d1d1f] transition-colors">Carbon Neutral Footprint</a></li>
+              <li><a href="#" class="hover:text-[#1d1d1f] transition-colors">Privacy by Design</a></li>
+              <li><a href="#" class="hover:text-[#1d1d1f] transition-colors">Plastic-Free Packaging</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Bottom Copyright & Locale Row -->
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pt-8 text-[12px]">
+          <div class="flex items-center gap-3">
+            <svg viewBox="0 0 260 260" class="w-4 h-4 text-[#1d1d1f]">
+              <use href="#galaxia-logo-full" transform="translate(130, 130)" />
+            </svg>
+            <span>Copyright © 2026 Galaxia Inc. All rights reserved.</span>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-x-5 gap-y-2 text-[#707070]">
+            <a href="#" class="hover:underline">Privacy Policy</a>
+            <span class="text-[#d6d6d6]">|</span>
+            <a href="#" class="hover:underline">Sales Terms</a>
+            <span class="text-[#d6d6d6]">|</span>
+            <a href="#" class="hover:underline">Legal Notices</a>
+            <span class="text-[#d6d6d6]">|</span>
+            <span class="text-[#1d1d1f] font-medium flex items-center gap-1.5">
+              <span>🇺🇸</span> United States (English)
+            </span>
+          </div>
+        </div>
+
+      </div>
+    </footer>
+
+    <!-- Interactive Client-side Script (All-in-one standalone logic) -->
+    <script>
+      // 1. Mobile Menu Toggle with Animated Hamburger to X and Top-to-Bottom Slide Transition
+      const mobileBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      function toggleMobileMenu(forceClose = false) {
+        if (!mobileBtn || !mobileMenu) return;
+        const isOpen = mobileBtn.classList.contains('is-active');
+        const shouldOpen = forceClose ? false : !isOpen;
+
+        if (shouldOpen) {
+          mobileBtn.classList.add('is-active');
+          mobileBtn.setAttribute('aria-expanded', 'true');
+          mobileBtn.setAttribute('aria-label', 'Close menu');
+          mobileMenu.classList.add('is-open');
+          mobileMenu.setAttribute('aria-hidden', 'false');
+          document.body.classList.add('overflow-hidden');
+        } else {
+          mobileBtn.classList.remove('is-active');
+          mobileBtn.setAttribute('aria-expanded', 'false');
+          mobileBtn.setAttribute('aria-label', 'Open menu');
+          mobileMenu.classList.remove('is-open');
+          mobileMenu.setAttribute('aria-hidden', 'true');
+          document.body.classList.remove('overflow-hidden');
+        }
+      }
+
+      if (mobileBtn && mobileMenu) {
+        mobileBtn.addEventListener('click', () => toggleMobileMenu());
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+          link.addEventListener('click', () => {
+            toggleMobileMenu(true);
+          });
+        });
+
+        // Auto-close when resizing back to desktop viewport
+        window.addEventListener('resize', () => {
+          if (window.innerWidth >= 768 && mobileBtn.classList.contains('is-active')) {
+            toggleMobileMenu(true);
+          }
+        });
+      }
+
+      // 2. Interactive Swatch Selector in Hero
+      const swatches = document.querySelectorAll('.swatch-btn');
+      const finishNameEl = document.getElementById('hero-finish-name');
+      const finishDescEl = document.getElementById('hero-finish-desc');
+      const contactFinishSelect = document.getElementById('contact-finish');
+
+      swatches.forEach(swatch => {
+        swatch.addEventListener('click', () => {
+          swatches.forEach(s => s.classList.remove('active'));
+          swatch.classList.add('active');
+
+          const name = swatch.getAttribute('data-finish');
+          const desc = swatch.getAttribute('data-desc');
+
+          if (finishNameEl) finishNameEl.textContent = name;
+          if (finishDescEl) finishDescEl.textContent = desc;
+          if (contactFinishSelect) contactFinishSelect.value = name;
+        });
+      });
+
+      // 3. Acoustic Canvas Waveform Simulation
+      const canvas = document.getElementById('acousticCanvas');
+      let ctx = canvas ? canvas.getContext('2d') : null;
+      let currentMode = 'anc';
+      let animFrameId = null;
+      let wavePhase = 0;
+
+      function resizeCanvas() {
+        if (!canvas) return;
+        canvas.width = canvas.parentElement.clientWidth;
+        canvas.height = 176;
+      }
+      window.addEventListener('resize', resizeCanvas);
+      resizeCanvas();
+
+      function drawAcousticWave() {
+        if (!ctx || !canvas) return;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        const w = canvas.width;
+        const h = canvas.height;
+        const midY = h / 2;
+
+        wavePhase += 0.05;
+
+        if (currentMode === 'anc') {
+          // Show ambient noise wave (faint gray) and counter anti-phase cancellation wave (electric blue)
+          ctx.lineWidth = 2;
+
+          // Incoming external noise wave
+          ctx.strokeStyle = 'rgba(255, 255, 255, 0.2)';
+          ctx.beginPath();
+          for (let x = 0; x < w; x++) {
+            const y = midY + Math.sin(x * 0.03 + wavePhase) * 28 + Math.cos(x * 0.015 - wavePhase) * 14;
+            if (x === 0) ctx.moveTo(x, y);
+            else ctx.lineTo(x, y);
+          }
+          ctx.stroke();
+
+          // Inverted phase cancellation wave emitted by Galaxia
+          ctx.strokeStyle = '#0071e3';
+          ctx.beginPath();
+          for (let x = 0; x < w; x++) {
+            const y = midY - (Math.sin(x * 0.03 + wavePhase) * 28 + Math.cos(x * 0.015 - wavePhase) * 14);
+            if (x === 0) ctx.moveTo(x, y);
+            else ctx.lineTo(x, y);
+          }
+          ctx.stroke();
+
+          // Resulting silence wave in ear canal (almost flat line)
+          ctx.strokeStyle = '#30d158';
+          ctx.lineWidth = 2.5;
+          ctx.beginPath();
+          for (let x = 0; x < w; x++) {
+            const residual = Math.sin(x * 0.08 + wavePhase * 2) * 2.2;
+            if (x === 0) ctx.moveTo(x, midY + residual);
+            else ctx.lineTo(x, midY + residual);
+          }
+          ctx.stroke();
+
+        } else if (currentMode === 'transparency') {
+          // Transparency: natural pass-through harmonic audio waves
+          ctx.lineWidth = 2.5;
+          const gradient = ctx.createLinearGradient(0, 0, w, 0);
+          gradient.addColorStop(0, '#0071e3');
+          gradient.addColorStop(0.5, '#64d2ff');
+          gradient.addColorStop(1, '#0071e3');
+          ctx.strokeStyle = gradient;
+
+          ctx.beginPath();
+          for (let x = 0; x < w; x++) {
+            const y = midY + Math.sin(x * 0.02 + wavePhase) * 35 + Math.sin(x * 0.05 + wavePhase * 1.5) * 18;
+            if (x === 0) ctx.moveTo(x, y);
+            else ctx.lineTo(x, y);
+          }
+          ctx.stroke();
+
+        } else if (currentMode === 'spatial') {
+          // Spatial audio: multi-channel layered 3D orbital curves
+          const layers = [
+            { color: '#0071e3', amp: 38, freq: 0.025, phaseOffset: 0 },
+            { color: '#bf5af2', amp: 26, freq: 0.04, phaseOffset: Math.PI / 3 },
+            { color: '#5e5ce6', amp: 18, freq: 0.06, phaseOffset: Math.PI / 1.5 }
+          ];
+
+          layers.forEach(layer => {
+            ctx.strokeStyle = layer.color;
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            for (let x = 0; x < w; x++) {
+              const y = midY + Math.sin(x * layer.freq + wavePhase + layer.phaseOffset) * layer.amp;
+              if (x === 0) ctx.moveTo(x, y);
+              else ctx.lineTo(x, y);
+            }
+            ctx.stroke();
+          });
+        }
+
+        animFrameId = requestAnimationFrame(drawAcousticWave);
+      }
+      drawAcousticWave();
+
+      // Mode Tab Switcher Logic
+      const modeTabs = document.querySelectorAll('.mode-tab-btn');
+      const modeLabel = document.getElementById('visualizer-mode-label');
+      const modeExpl = document.getElementById('visualizer-explanation');
+      const metricDb = document.getElementById('metric-db');
+      const metricMs = document.getElementById('metric-ms');
+
+      const modeInfo = {
+        anc: {
+          label: 'Active Noise Cancellation (ANC): Inverted Anti-Phase Active',
+          expl: 'External microphones detect ambient noise and generate an equal, opposite anti-phase waveform to cancel sound before it reaches your eardrums.',
+          db: '-38 dB',
+          ms: '0.02 ms'
+        },
+        transparency: {
+          label: 'Transparency Mode: Calibrated Passthrough Microphones',
+          expl: 'Algorithms attenuate wind buffeting and amplify human vocal frequencies so you can converse naturally without removing your headphones.',
+          db: '+0 dB (Natural)',
+          ms: '0.01 ms'
+        },
+        spatial: {
+          label: '360° Spatial Audio: 3D Rendering with Head Tracking',
+          expl: 'Dynamic binaural mapping anchors sound sources fixed in three dimensions regardless of head orientation.',
+          db: 'Surround 7.1.4',
+          ms: '< 0.05 ms'
+        }
+      };
+
+      modeTabs.forEach(btn => {
+        btn.addEventListener('click', () => {
+          modeTabs.forEach(b => {
+            b.classList.remove('apple-pill-btn-primary');
+            b.classList.add('text-[#1d1d1f]');
+          });
+          btn.classList.add('apple-pill-btn-primary');
+          btn.classList.remove('text-[#1d1d1f]');
+
+          currentMode = btn.getAttribute('data-mode');
+          const info = modeInfo[currentMode];
+          if (info) {
+            if (modeLabel) modeLabel.textContent = info.label;
+            if (modeExpl) modeExpl.textContent = info.expl;
+            if (metricDb) metricDb.textContent = info.db;
+            if (metricMs) metricMs.textContent = info.ms;
+          }
+        });
+      });
+
+      // 4. Interactive Volume Dial Demo
+      let volume = 72;
+      const volIndicator = document.getElementById('volume-indicator');
+      const volText = document.getElementById('volume-text');
+      const btnVolUp = document.getElementById('btn-vol-up');
+      const btnVolDown = document.getElementById('btn-vol-down');
+
+      function updateVolume(newVol) {
+        volume = Math.max(0, Math.min(100, newVol));
+        if (volIndicator) volIndicator.style.width = volume + '%';
+        if (volText) volText.textContent = volume + '%';
+      }
+
+      if (btnVolUp) btnVolUp.addEventListener('click', () => updateVolume(volume + 4));
+      if (btnVolDown) btnVolDown.addEventListener('click', () => updateVolume(volume - 4));
+
+      // 5. Contact Form Submission Handling
+      const contactForm = document.getElementById('contact-form');
+      const contactSuccess = document.getElementById('contact-success-msg');
+      const contactSubmitBtn = document.getElementById('contact-submit-btn');
+
+      if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          if (contactSubmitBtn) {
+            contactSubmitBtn.textContent = 'Submitting inquiry...';
+            contactSubmitBtn.classList.add('opacity-75');
+          }
+          setTimeout(() => {
+            if (contactSubmitBtn) {
+              contactSubmitBtn.textContent = 'Inquiry submitted';
+              contactSubmitBtn.classList.remove('opacity-75');
+            }
+            if (contactSuccess) {
+              contactSuccess.classList.remove('hidden');
+            }
+            contactForm.reset();
+          }, 600);
+        });
+      }
+    </script>
+  </body>
+</html>
