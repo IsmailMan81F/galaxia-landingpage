@@ -1,4 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 260" fill="none">
+  <style>
+    :root { color: #1d1d1f; }
+    @media (prefers-color-scheme: dark) {
+      :root { color: #ffffff; }
+    }
+  </style>
   <defs>
     <path id="galaxia-unit" d="M -12,-20.2 C -6,-15.5 -4,-11 0,-11 C 4,-11 6,-15.5 12,-20.2 A 23.5 23.5 0 1 1 12,20.2 C 6,15.5 4,11 0,11 C -4,11 -6,15.5 -12,20.2 A 23.5 23.5 0 1 1 -12,-20.2 Z" fill="currentColor" />
   </defs>
