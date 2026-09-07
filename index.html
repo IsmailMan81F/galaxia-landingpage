@@ -183,6 +183,64 @@
         outline-offset: 3px;
       }
 
+      /* Mode Simulator Segmented Options Container (Nested radius math: Outer 14px, Padding 4px, Inner 10px) */
+      .mode-options-container {
+        border-radius: 14px;
+        background-color: #e8e8ed;
+        padding: 4px;
+        display: inline-flex;
+        gap: 4px;
+        max-width: 100%;
+      }
+
+      .mode-tab-btn {
+        border-radius: 10px; /* Nested corner radius rule: 14px - 4px = 10px */
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1.25;
+        padding: 8px 16px; /* Strict 2:1 horizontal-to-vertical padding */
+        color: #1d1d1f;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        white-space: nowrap;
+        text-align: center;
+        transition: all 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .mode-tab-btn:hover {
+        color: #0071e3;
+        background-color: rgba(255, 255, 255, 0.55);
+      }
+
+      .mode-tab-btn.is-active,
+      .mode-tab-btn.apple-pill-btn-primary {
+        background-color: #0071e3 !important;
+        color: #ffffff !important;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+      }
+
+      .mode-tab-btn.is-active:hover,
+      .mode-tab-btn.apple-pill-btn-primary:hover {
+        background-color: #0077ed !important;
+        color: #ffffff !important;
+      }
+
+      @media (max-width: 639px) {
+        .mode-options-container {
+          flex-direction: column;
+          width: 100%;
+        }
+        .mode-tab-btn {
+          width: 100%;
+          white-space: normal;
+        }
+      }
+
       /* Animated Hamburger Menu Button */
       .hamburger-btn {
         width: 36px;
@@ -264,7 +322,7 @@
       .mobile-nav-panel.is-open .mobile-nav-link-item:nth-child(4) { transition-delay: 0.20s; }
       .mobile-nav-panel.is-open .mobile-nav-link-item:nth-child(5) { transition-delay: 0.24s; }
 
-      /* Mobile Navigation Links: left-to-right blue text fill sweep with blur effect */
+      /* Mobile Navigation Links: left-to-right blue text fill with Gaussian diffused blur strictly INSIDE the text */
       .mobile-nav-link {
         display: inline-block;
         width: fit-content;
@@ -273,26 +331,29 @@
         font-weight: 600;
         letter-spacing: -0.025em;
         text-decoration: none;
-        /* Softened feathered gradient boundary for diffused/blurred color spread */
+        /* Multi-step Gaussian diffused wave strictly masked inside the glyph contours (zero outer bleed) */
+        /* Shifted safely left so neutral state (100% 0) is 100% solid #1d1d1f with zero blur bleeding */
         background-image: linear-gradient(
           to right,
           #0071e3 0%,
-          #0071e3 36%,
-          rgba(0, 113, 227, 0.85) 44%,
-          rgba(0, 113, 227, 0.4) 49%,
-          rgba(29, 29, 31, 0.6) 53%,
-          #1d1d1f 60%,
+          #0071e3 34%,
+          rgba(0, 113, 227, 0.92) 37%,
+          rgba(0, 113, 227, 0.78) 40%,
+          rgba(0, 113, 227, 0.58) 43%,
+          rgba(0, 113, 227, 0.36) 46%,
+          rgba(0, 113, 227, 0.16) 49%,
+          rgba(0, 113, 227, 0.04) 51%,
+          #1d1d1f 52%,
           #1d1d1f 100%
         );
-        background-size: 220% 100%;
+        background-size: 300% 100%;
         background-position: 100% 0;
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
         color: #1d1d1f;
-        filter: drop-shadow(0 0 0px rgba(0, 113, 227, 0));
-        transition: background-position 0.48s cubic-bezier(0.25, 1, 0.5, 1),
-                    filter 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+        /* Absolutely no drop-shadow or outer filter: borders stay razor-sharp and masked by the letterforms */
+        transition: background-position 0.52s cubic-bezier(0.25, 1, 0.5, 1);
         cursor: pointer;
         padding-top: 4px;
         padding-bottom: 4px;
@@ -302,7 +363,6 @@
       .mobile-nav-link:focus,
       .mobile-nav-link:active {
         background-position: 0 0;
-        filter: drop-shadow(0 0 10px rgba(0, 113, 227, 0.5)) drop-shadow(0 0 3px rgba(0, 113, 227, 0.4));
       }
 
       /* Clean subtle custom scrollbar */
@@ -368,7 +428,7 @@
 
         <!-- Action CTA -->
         <div class="flex items-center gap-3">
-          <a href="#contacto" class="apple-pill-btn apple-pill-btn-primary text-[13px] py-1.5 px-4 font-medium">
+          <a href="#contacto" class="apple-pill-btn apple-pill-btn-primary text-[13px] py-1.5 px-3 font-medium">
             Buy
           </a>
           <!-- Mobile Menu Toggle Button (Animated Hamburger to X) -->
@@ -641,15 +701,15 @@
                 </p>
               </div>
 
-              <!-- Mode Selector Tabs (Pill style) -->
-              <div class="flex flex-wrap gap-2 p-1.5 bg-[#e8e8ed] rounded-full">
-                <button id="btn-mode-anc" class="mode-tab-btn apple-pill-btn apple-pill-btn-primary text-[14px] py-2 px-5" data-mode="anc">
+              <!-- Mode Selector Tabs (Mathematically nested 14px container radius, zero cropping on all viewports) -->
+              <div class="mode-options-container flex flex-col sm:flex-row gap-1 p-1 bg-[#e8e8ed] rounded-[14px] w-full sm:w-auto max-w-full">
+                <button id="btn-mode-anc" class="mode-tab-btn is-active apple-pill-btn-primary" data-mode="anc">
                   Active Noise Cancellation (ANC)
                 </button>
-                <button id="btn-mode-transparency" class="mode-tab-btn apple-pill-btn text-[14px] py-2 px-5 text-[#1d1d1f] hover:text-[#0071e3]" data-mode="transparency">
+                <button id="btn-mode-transparency" class="mode-tab-btn" data-mode="transparency">
                   Transparency Mode
                 </button>
-                <button id="btn-mode-spatial" class="mode-tab-btn apple-pill-btn text-[14px] py-2 px-5 text-[#1d1d1f] hover:text-[#0071e3]" data-mode="spatial">
+                <button id="btn-mode-spatial" class="mode-tab-btn" data-mode="spatial">
                   360° Spatial Audio
                 </button>
               </div>
@@ -1041,14 +1101,16 @@
                   </label>
                 </div>
 
-                <!-- Submit Button -->
-                <button
-                  type="submit"
-                  id="contact-submit-btn"
-                  class="apple-pill-btn apple-pill-btn-primary w-full sm:w-auto py-3 px-8 text-[16px] font-medium cursor-pointer"
-                >
-                  Request specialist consultation
-                </button>
+                <!-- Submit Button (Strict design system 2:1 padding on a single clean line) -->
+                <div class="pt-2">
+                  <button
+                    type="submit"
+                    id="contact-submit-btn"
+                    class="apple-pill-btn apple-pill-btn-primary w-full sm:w-auto py-[11px] px-[22px] text-[15px] sm:text-[16px] font-medium cursor-pointer text-center whitespace-nowrap"
+                  >
+                    Request specialist consultation
+                  </button>
+                </div>
 
                 <!-- Feedback Toast / Notice -->
                 <div id="contact-success-msg" class="hidden p-4 rounded-xl bg-white border border-[#d6d6d6] text-[14px] text-[#1d1d1f] mt-4">
@@ -1443,10 +1505,10 @@
       modeTabs.forEach(btn => {
         btn.addEventListener('click', () => {
           modeTabs.forEach(b => {
-            b.classList.remove('apple-pill-btn-primary');
+            b.classList.remove('apple-pill-btn-primary', 'is-active');
             b.classList.add('text-[#1d1d1f]');
           });
-          btn.classList.add('apple-pill-btn-primary');
+          btn.classList.add('apple-pill-btn-primary', 'is-active');
           btn.classList.remove('text-[#1d1d1f]');
 
           currentMode = btn.getAttribute('data-mode');
